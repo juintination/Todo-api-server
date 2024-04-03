@@ -2,6 +2,8 @@ package org.zerock.todoapi.service;
 
 import org.springframework.transaction.annotation.Transactional;
 import org.zerock.todoapi.domain.Todo;
+import org.zerock.todoapi.dto.PageRequestDTO;
+import org.zerock.todoapi.dto.PageResponseDTO;
 import org.zerock.todoapi.dto.TodoDTO;
 
 @Transactional
@@ -14,6 +16,8 @@ public interface TodoService {
     void modify(TodoDTO dto);
 
     void remove(Long tno);
+
+    PageResponseDTO<TodoDTO> getList(PageRequestDTO pageRequestDTO);
 
     default TodoDTO entityToDTO(Todo todo) {
 
