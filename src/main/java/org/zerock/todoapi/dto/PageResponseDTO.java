@@ -1,5 +1,6 @@
 package org.zerock.todoapi.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Builder;
 import lombok.Data;
 
@@ -8,17 +9,38 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 @Data
+@Schema(description = "페이지 응답 DTO")
 public class PageResponseDTO<E> {
 
+    @Schema(description = "현재 페이지의 TODO DTO 리스트")
     private List<E> dtoList;
 
+    @Schema(description = "현재 페이지에서 볼 수 있는 페이지 번호 리스트")
     private List<Integer> pageNumList;
 
+    @Schema(description = "페이지 요청 DTO")
     private PageRequestDTO pageRequestDTO;
 
-    private boolean prev, next;
+    @Schema(description = "이전 페이지 리스트 존재 여부")
+    private boolean prev;
 
-    private int totalCount, prevPage, nextPage, totalPage, current;
+    @Schema(description = "다음 페이지 리스트 존재 여부")
+    private boolean next;
+
+    @Schema(description = "전체 TODO 개수")
+    private int totalCount;
+
+    @Schema(description = "이전 페이지 리스트의 시작 번호")
+    private int prevPage;
+
+    @Schema(description = "다음 페이지 리스트의 시작 번호")
+    private int nextPage;
+
+    @Schema(description = "현재 페이지에서 볼 수 있는 페이지 개수")
+    private int totalPage;
+
+    @Schema(description = "현재 페이지 번호")
+    private int current;
 
     @Builder(builderMethodName = "withAll")
     public PageResponseDTO(List<E> dtoList, PageRequestDTO pageRequestDTO, long totalCount) {
