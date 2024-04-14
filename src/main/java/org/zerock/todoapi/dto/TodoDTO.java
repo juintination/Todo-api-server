@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @Builder
@@ -17,6 +18,12 @@ public class TodoDTO {
 
     @Schema(description = "TODO 식별 번호", defaultValue = "0")
     private Long tno;
+
+    @Schema(description = "TODO 생성 일자")
+    private LocalDateTime regDate;
+
+    @Schema(description = "TODO 수정 일자")
+    private LocalDateTime modDate;
 
     @Schema(description = "TODO 제목", example = "Title..")
     private String title;

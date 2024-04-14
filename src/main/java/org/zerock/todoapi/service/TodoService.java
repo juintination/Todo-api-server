@@ -23,6 +23,8 @@ public interface TodoService {
 
         return TodoDTO.builder()
                 .tno(todo.getTno())
+                .regDate(todo.getRegDate())
+                .modDate(todo.getModDate())
                 .title(todo.getTitle())
                 .content(todo.getContent())
                 .complete(todo.isComplete())
