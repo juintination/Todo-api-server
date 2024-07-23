@@ -2,6 +2,7 @@ package org.zerock.todoapi.repository;
 
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -28,6 +29,7 @@ public class TodoRepositoryTests {
     }
 
     @Test
+    @BeforeEach
     public void testInsert() {
         for (int i = 0; i < 100; i++) {
             Todo todo = Todo.builder()
@@ -43,11 +45,14 @@ public class TodoRepositoryTests {
 
     @Test
     public void testRead() {
+
         Long tno = 1L;
         Optional<Todo> result = todoRepository.findById(tno);
         Todo todo = result.orElseThrow();
+
         Assertions.assertNotNull(todo);
         log.info(todo);
+
     }
 
     @Test
@@ -63,6 +68,7 @@ public class TodoRepositoryTests {
         todo.changeDueDate(LocalDate.of(2023,10,10));
 
         Assertions.assertNotNull(todoRepository.save(todo));
+        log.info(todo);
 
     }
 
