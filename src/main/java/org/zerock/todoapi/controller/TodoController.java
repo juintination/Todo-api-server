@@ -30,7 +30,6 @@ public class TodoController {
         return todoService.get(tno);
     }
 
-
     @GetMapping("/list")
     @Operation(summary = "TODO 리스트 조회", description = "페이지 번호와 사이즈에 맞는 TODO 리스트를 조회합니다.")
     @Parameters({
