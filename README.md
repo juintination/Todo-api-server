@@ -16,6 +16,34 @@ This project uses the [Udacity Nanoderee Style](https://udacity.github.io/git-st
   - querydsl
 - Test
   - JUnit
+ 
+## Run Application with docker
+
+1. Git clone repository
+
+```
+git clone https://github.com/juintination/todo-api-server.git
+
+cd todo-api-server
+```
+
+2. Build docker image
+
+```
+docker build -t todo-image .
+```
+
+3. Run with docker enviornment
+
+```
+docker compose up -d
+```
+
+4. Remove docker environment
+
+```
+docker compose down
+```
 
 ## About this Study
 
